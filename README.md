@@ -7,6 +7,8 @@
 ```elixir
 def deps do
   [
+    {:node_registry, "~> 0.1"},
+    # or
     {:node_registry, github: "antonmi/node_registry"}
   ]
 end
