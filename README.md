@@ -34,11 +34,12 @@ Add `{NodeRegistry, :my_service}` to the end of supervisor's children list.
 Name is any arbitrary atom or string.
 
 Examples:
-```elixir
-:my_service # if you have only one "instance" of the service
-:my_service_v1 # if you have multiple versions of the same service
-"web_service_v1_#{random_postfix}" # if you have multiple versions / instances of the same service
-```
+
+`:my_service` (`"my_service"`), if you have only one "instance" of the service
+
+`:my_service_v1` (`"my_service_v1"`), if you have multiple versions of the same service
+
+`"web_service_v1_#{postfix}"`, if you have multiple versions / instances of the same service
 
 Then you can find it and do `rpc.call` like:
 ```elixir
