@@ -12,10 +12,35 @@ def deps do
 end
 ```
 
-## Usage
-Add `{NodeRegistry, :my_service}` to the supervisor's children list.
+## Motivation
+Assuming:
+- you have a cluster of nodes;
+- different services are running on different nodes;
+- some nodes may run identical services;
+- some nodes may run different versions of the same service;
+- you want to find a node with a specific service and do, for example, rpc.call to it.
 
-Then you can find it and do rpc.call like:
+## Solution
+NodeRegistry provides a simple way to register node with a specific name.
+
+It uses Erlang's :global module to register a node with a specific name.
+It then uses :global.whereis_name to find a node by name.
+Or it queries the `:global_names` ETS table to search nodes by name prefix.
+
+
+## Usage
+Add `{NodeRegistry, :my_service}` to the end of supervisor's children list.
+
+Name is any arbitrary atom or string.
+
+Examples:
+```elixir
+:my_service # if you have only one "instance" of the service
+:my_service_v1 # if you have multiple versions of the same service
+"web_service_v1_#{random_postfix}" # if you have multiple versions / instances of the same service
+```
+
+Then you can find it and do `rpc.call` like:
 ```elixir
 :my_service
 |> NodeRegistry.node_with_name()
