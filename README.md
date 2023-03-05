@@ -1,6 +1,6 @@
 # NodeRegistry
 
-**A simple node registry built on top of the Erlang's :global module**
+**A simple node registry built on top of the Erlang :global module**
 
 ## Installation
 

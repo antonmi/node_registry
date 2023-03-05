@@ -15,7 +15,7 @@ defmodule NodeRegistry.MixProject do
   end
 
   defp description do
-    "A simple node registry built on top of the Erlang's :global module"
+    "A simple node registry built on top of the Erlang :global module"
   end
 
   defp package do
