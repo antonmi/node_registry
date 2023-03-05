@@ -4,7 +4,7 @@ defmodule NodeRegistry.MixProject do
   def project do
     [
       app: :node_registry,
-      version: "0.1.0",
+      version: "0.1.1",
       elixir: "~> 1.14",
       start_permanent: Mix.env() == :prod,
       description: description(),
@@ -15,7 +15,7 @@ defmodule NodeRegistry.MixProject do
   end
 
   defp description do
-    "Declarative Interface Translation"
+    "A simple node registry built on top of the Erlang's :global module"
   end
 
   defp package do

@@ -9,9 +9,9 @@ defmodule NodeRegistry do
 
   defstruct [:node, :name, :pid]
 
-  @type t :: %__MODULE__{node: node, name: name, pid: pid}
-
   @type name :: atom | String.t()
+
+  @type t :: %__MODULE__{node: node, name: name, pid: pid}
 
   @lookup_prefix :node_registry
 
