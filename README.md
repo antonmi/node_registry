@@ -1,5 +1,7 @@
 # NodeRegistry
 
+[![Hex.pm](https://img.shields.io/hexpm/v/node_registry.svg?style=flat-square)](https://hex.pm/packages/node_registry)
+
 **A simple node registry built on top of the Erlang :global module**
 
 ## Installation
