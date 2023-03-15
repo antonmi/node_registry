@@ -35,6 +35,9 @@ defmodule NodeRegistry do
   @impl true
   def handle_call(:state, _from, state), do: {:reply, state, state}
 
+  @spec list() :: list(NodeRegistry.t())
+  def list, do: all()
+
   @spec all() :: list(NodeRegistry.t())
   def all do
     :global_names

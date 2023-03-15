@@ -20,6 +20,11 @@ defmodule NodeRegistryTest do
     assert NodeRegistry.all() == %{service_a: :nonode@nohost}
   end
 
+  test "list/0" do
+    assert NodeRegistry.list() == %{service_a: :nonode@nohost}
+  end
+
+
   test "info/1", %{pid: pid} do
     info = %NodeRegistry{
       node: :nonode@nohost,
