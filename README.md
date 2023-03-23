@@ -72,6 +72,19 @@ Then you can find them and do rpc.call like:
 |> :rpc.multicall(Module, function, args)
 ```
 
+## NodeRegistry.Remote
+One can `import NodeRegistry.Remote` and call remotely any function on random node with a specific name prefix.
+
+```elixir
+defmodule MyApp do
+  import NodeRegistry.Remote
+    
+  def call_my_service do
+    remote(:my_service, Mod, :fun, [1,2])
+  end
+end
+```
+
 
 
 
