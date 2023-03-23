@@ -12,23 +12,22 @@ defmodule NodeRegistryTest do
   end
 
   test "check :global.registered_names()", %{pid: pid} do
-    assert :global.registered_names() == [{:node_registry, :service_a}]
-    assert :global.whereis_name({:node_registry, :service_a}) == pid
+    assert :global.registered_names() == [{:node_registry, :service_a_nonode@nohost}]
+    assert :global.whereis_name({:node_registry, :service_a_nonode@nohost}) == pid
   end
 
   test "all/0" do
-    assert NodeRegistry.all() == %{service_a: :nonode@nohost}
+    assert NodeRegistry.all() == %{service_a_nonode@nohost: :nonode@nohost}
   end
 
   test "list/0" do
-    assert NodeRegistry.list() == %{service_a: :nonode@nohost}
+    assert NodeRegistry.list() == %{service_a_nonode@nohost: :nonode@nohost}
   end
-
 
   test "info/1", %{pid: pid} do
     info = %NodeRegistry{
       node: :nonode@nohost,
-      name: :service_a,
+      name: :service_a_nonode@nohost,
       pid: pid
     }
 
@@ -38,7 +37,7 @@ defmodule NodeRegistryTest do
   end
 
   test "node_with_name/1" do
-    assert NodeRegistry.node_with_name(:service_a) == :nonode@nohost
+    assert NodeRegistry.node_with_name(:service_a_nonode@nohost) == :nonode@nohost
     assert NodeRegistry.node_with_name(:no_such_service) == nil
   end
 
